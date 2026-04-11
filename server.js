@@ -37,7 +37,18 @@ app.use("/api/ai", geminiRouter);
 app.get('/', (req, res) => {
     res.send("API WORKING");
 });
+// Keep Render alive — ping every 14 minutes
 
 app.listen(port, () => {
     console.log(`Server Started on http://localhost:${port}`);
 });
+
+const BACKEND_URL = process.env.RENDER_EXTERNAL_URL || `http://localhost:${port}`;
+setInterval(async () => {
+  try {
+    await fetch(`${BACKEND_URL}/`);
+    console.log("Keep-alive ping sent");
+  } catch (err) {
+    console.log("Keep-alive ping failed:", err.message);
+  }
+}, 14 * 60 * 1000); // every 14 minutes
