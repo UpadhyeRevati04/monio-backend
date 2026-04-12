@@ -5,8 +5,8 @@ import jwt from 'jsonwebtoken';
 
 const TOKEN_EXPIRES = '24h';
 
-const createToken = (userId) =>
-const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET || 'monio_secret_key_2024_revati', { expiresIn: '7d' });
+const JWT_SECRET = process.env.JWT_SECRET || 'monio_secret_key_2024_revati';
+const createToken = (userId) => jwt.sign({ id: userId }, JWT_SECRET, { expiresIn: TOKEN_EXPIRES });
 
 // REGISTER A USER
 export async function registerUser(req, res) {
