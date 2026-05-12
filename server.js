@@ -39,9 +39,9 @@ app.use("/api/dashboard", dashboardRouter);
 app.use("/api/gmail", gmailRouter);
 app.use("/api/ai", geminiRouter);
 
-app.get('/', (req, res) => {
-    res.send("API WORKING");
-});
+// app.get('/', (req, res) => {
+//     res.send("API WORKING");
+// });
 // Keep Render alive — ping every 14 minutes
 
 // Serve frontend
