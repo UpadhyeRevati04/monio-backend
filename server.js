@@ -1,7 +1,12 @@
 import express from 'express';
 import cors from 'cors';
+import path from 'path';
 import 'dotenv/config';
 import { connectDB } from './config/db.js';
+import {fileURLToPath} from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 import userRouter from './routes/userRoute.js';
 import incomeRouter from './routes/incomeRoute.js';
@@ -38,6 +43,12 @@ app.get('/', (req, res) => {
     res.send("API WORKING");
 });
 // Keep Render alive — ping every 14 minutes
+
+// Serve frontend
+app.use(express.static(path.join(__dirname, 'dist')));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
 
 app.listen(port, () => {
     console.log(`Server Started on http://localhost:${port}`);
