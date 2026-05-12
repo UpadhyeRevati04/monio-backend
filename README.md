@@ -11,7 +11,7 @@ A full-stack personal finance tracker. Log your income and expenses, sync transa
 ---
 
 ## System Architecture
-![SystemArchitecture](frontend/public/systemarchi.png)
+![SystemArchitecture](./assets/systemarchi.png)
 
 ## Live Demo
 https://monio-backend-5lzg.onrender.com
@@ -19,10 +19,10 @@ https://monio-backend-5lzg.onrender.com
 ## Screenshots
 
 ### Dashboard
-![Dashboard](frontend\public\dashboard.png)
+![Dashboard](./assets/dashboard.png)
 
 ### Expense Report (PDF)
-![PDF Report](frontend\public\exportreport.png)
+![PDF Report](./assets/exportreport.png)
 
 ---
 
